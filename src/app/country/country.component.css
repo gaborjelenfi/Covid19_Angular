@@ -1,0 +1,40 @@
+.country__title-box {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 60px;
+}
+
+.country__text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+}
+
+.country__button--back {
+  margin-left: 20px
+}
+
+.country__select--time {
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 18px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}

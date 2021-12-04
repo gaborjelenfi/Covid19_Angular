@@ -1,0 +1,106 @@
+<div class="country__title-box">
+  <button class="country__button--back" mat-raised-button routerLink="/">Back</button>
+  <p class="country__text">{{ country }} | {{ slug }}</p>
+  <mat-form-field class="country__select--time" appearance="fill">
+    <mat-label>Time</mat-label>
+    <mat-select [(value)]="selected" (selectionChange)="onTimeValueChange($event)">
+      <mat-option *ngFor="let day of days" [value]="day.value">
+        {{day.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    (matSortChange)="sortService.announceSortChange($event)"
+  >
+    <ng-container matColumnDef="Province">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by province"
+      >
+        Province
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.Province ? element.Province : '' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Active">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by active"
+      >
+        Active
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.Active | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Confirmed">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by confirmed"
+      >
+        Confirmed
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.Confirmed | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Deaths">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by deaths"
+      >
+        Deaths
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.Deaths | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Recovered">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by recovered"
+      >
+        Recovered
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.Recovered | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by date"
+      >
+        Date
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.Date | date }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: columnsToDisplay"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of covid data elements"
+  >
+  </mat-paginator>
+</div>

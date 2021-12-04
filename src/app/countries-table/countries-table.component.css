@@ -1,0 +1,34 @@
+.countries__date-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+}
+
+.countries__date {
+  color: #fff;
+  font-size: 18px;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  color: #fff;
+}
+

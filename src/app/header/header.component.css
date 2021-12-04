@@ -1,0 +1,34 @@
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 65px;
+  background-color: #5f9ea0;
+}
+
+.header__text {
+  position: relative;
+  display: inline-block;
+  font-size: 32px;
+  margin: 0;
+  font-weight: bold;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.header__text::before {
+  position: absolute;
+  content: attr(data-content);
+  top: 0;
+  left: 0;
+  width: 0;
+  color: #4d4d4d;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 275ms ease;
+}
+
+.header__text:hover::before {
+  width: 100%;
+}

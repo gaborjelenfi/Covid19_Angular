@@ -1,0 +1,133 @@
+
+<div class="countries__date-box">
+  <p class="countries__date">Summary | {{ today | date }}</p>
+</div>
+
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="search for a country"
+    #input
+  />
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    (matSortChange)="sortService.announceSortChange($event)"
+  >
+    <ng-container matColumnDef="Country">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by country"
+      >
+        Country
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.Country }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="CountryCode">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by country code"
+      >
+        Country Code
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.CountryCode }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="NewConfirmed">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by new confirmed"
+      >
+        New Confirmed
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.NewConfirmed | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="NewDeaths">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by new deaths"
+      >
+        New Deaths
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.NewDeaths | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="NewRecovered">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by new recovered"
+      >
+        New Recovered
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.NewRecovered | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="TotalConfirmed">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by total confirmed"
+      >
+        Total Confirmed
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.TotalConfirmed | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="TotalDeaths">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by total deaths"
+      >
+        Total Deaths
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.TotalDeaths | number }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="TotalRecovered">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by total recovered"
+      >
+        Total Recovered
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.TotalRecovered | number }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      routerLink="{{ row.Slug }}"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of covid data elements"
+  >
+  </mat-paginator>
+</div>
