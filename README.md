@@ -1,27 +1,41 @@
-# Covid19
+# Covid19 tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+### Live demo: <a href="https://dzsub-covid19.surge.sh/" target="_blank">Covid19</a>
 
-## Development server
+### This app focusing on how to fetch data through a public API.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The app using data through Coronavirus Covid19 API: <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc#487b7483-ad29-4b2e-9c6d-5b8d3693ddd5" target="_blank">Covid19 API document</a>
 
-## Code scaffolding
+## Used Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ - Angular 2+
+ - Material UI
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Summary countries table page:
 
-## Running unit tests
+Use the **Filter** input field for filtering country names.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ - Filter input
 
-## Running end-to-end tests
+The table using pagination. Set up how many rows you would like to display per page.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+For the details of a country just **click** on a row.
 
-## Further help
+### Detailed page:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Province** column only appear if there are provinces.
+
+**Back** button navigate the page back to the **summary** countries page.
+
+ - Back button
+
+This page is using the same pagination too as the main page.
+
+On the top right corner there is a **Time** select options. Chose one for how many data you would like to see.
+
+ - Last 7 days (default)
+ - Last 14 days
+ - Curent Month
+
